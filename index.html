@@ -1,61 +1,86 @@
 <!doctype html>
 <html lang="en-us">
+
 <head>
   <meta charset="UTF-8">
-	<title>Contact | Your Name</title>
-	<link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.jpg" />
+  <title>Contact | Your Name</title>
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.jpg" />
+  <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
 
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
+
 <body>
   <header id="masthead">
     <div class="container">
       <a href="index.html" id="logo">Family Tree</a>
-      
+
     </div>
   </header>
+  <br>
+
+
+
+
   <div id="main-container" class="container">
-    <section class="main-section">
-      <h1>Contact</h1>
-      <form id="contact-form">
-        <ul>
-          <li>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="John Smith" required="required">
-          </li>
-          <li>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="example@gmail.com" required="required">
-          </li>
-          <li>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required="required"></textarea>
-          </li>
-        </ul>
-        <input type="submit">
-      </form>
-    </section>
-    <section class="sidebar">
-      <div id="connect">
-        <h2>Connect with Me</h2>
-        <a href="#"><img src="assets/images/github-128.png" class="social" alt="GitHub" /></a>
-        <a href="#"><img src="assets/images/linkedin-128.png" class="social" alt="LinkedIn" /></a>
-        <a href="#"><img src="assets/images/stackoverflow-128.png" class="social" alt="Stack Overflow" /></a>
+    <form>
+      <div id='addFamilyMember' class="panel panel-default">
+        <div class="panel-heading" id="formheading">
+          Add Family Member for ...
+
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default">Navin</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default">Veronica</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default">Leon</button>
+              </div>
+              <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-default">Monica</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+
+
+          <label class="col-form-label" for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstNameInput" placeholder="Enter First Name">
+          <label class="col-form-label" for="firstName">Last Name</label>
+          <input type="text" class="form-control" id="lastNameInput" placeholder="Enter Last Name">
+          <label class="col-form-label" for="dob">Date of Birth (MM/DD/YYYY)</label>
+          <input type="text" class="form-control" id="dobInput" placeholder="Enter Date of Birth">
+          <label class="col-form-label" for="birthPlace">Birth Place</label>
+          <input type="text" class="form-control" id="birthPlaceInput" placeholder="Enter Birth Place">
+          <label class="col-form-label" for="hobbies">Hobbies</label>
+          <input type="text" class="form-control" id="hobbiesInput" placeholder="Enter your favorite Hobby">
+
+        </div>
       </div>
-    </section>
+      <button id='submit' type="submit" class="btn btn-primary">Submit</button>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <script type="text/javascript" src='assets/javascript/code.js'></script>
+      <script type="text/javascript">
+      </script>
+    </form>
+
   </div>
-  <footer>
-    <div class="container">
-      Copyright &copy; 2016 Your Name
-    </div>
-  </footer>
 
+  <h2>Add Person Details</h2>
 
-	<h2>Add Person Details</h2>
-	<button>Submit</button>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/javascript/code.js"></script>
+  <button>Submit</button>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="assets/javascript/code.js"></script> -->
 
 </body>
+
 </html>
