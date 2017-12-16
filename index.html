@@ -10,7 +10,6 @@
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
-
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
@@ -22,10 +21,6 @@
     </div>
   </header>
   <br>
-
-
-
-
   <div id="main-container" class="container">
     <form>
       <div id='addFamilyMember' class="panel panel-default">
@@ -49,7 +44,25 @@
         </div>
         <div class="form-group">
 
+        <form action="/action_page.php">
+            <input type="file" name="profilePic" accept="image/*"> 
+          </form>
 
+
+         <label class="col-form-label" for="Relationship">Relationship </label> 
+
+         <select>
+            <option label="Grandparent">Grandparent</option>
+            <option label="Parent">Parent</option>
+            <option label="Sibling">Sibling</option>
+            <option label="Spouse">Spouse)</option>
+            <option label="Child">Child</option>
+        </select>
+
+         <br>
+         
+
+         
           <label class="col-form-label" for="firstName">First Name</label>
           <input type="text" class="form-control" id="firstNameInput" placeholder="Enter First Name">
           <label class="col-form-label" for="firstName">Last Name</label>
@@ -58,12 +71,27 @@
           <input type="text" class="form-control" id="dobInput" placeholder="Enter Date of Birth">
           <label class="col-form-label" for="birthPlace">Birth Place</label>
           <input type="text" class="form-control" id="birthPlaceInput" placeholder="Enter Birth Place">
+            <label class="col-form-label" for="Occupation">Occupation</label>
+          <input type="text" class="form-control" id="occupationInput" placeholder="Enter your occupation ">
           <label class="col-form-label" for="hobbies">Hobbies</label>
-          <input type="text" class="form-control" id="hobbiesInput" placeholder="Enter your favorite Hobby">
+          <input type="text" class="form-control" id="hobbiesInput" placeholder="Enter your favorite hobby">
+          <label class="col-form-label" for="favoriteMovie">Favorite Movie</label>
+          <input type="text" class="form-control" id="favoriteMovieInput" placeholder="Enter your favorite movie ">
+          <label class="col-form-label" for="favoriteQuote">Favorite Quote</label>
+          <input type="text" class="form-control" id="favoriteQuoteInput" placeholder="Enter your favorite quote ">
+          <label class="col-form-label" for="favoriteSong">Favorite Song</label>
+          <input type="text" class="form-control" id="favoriteSongInput" placeholder="Enter your favorite song ">
 
         </div>
       </div>
+
       <button id='submit' type="submit" class="btn btn-primary">Submit</button>
+      <br><br><br>
+
+
+
+
+
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
       <script type="text/javascript" src='assets/javascript/code.js'></script>
@@ -72,10 +100,10 @@
     </form>
 
   </div>
-
+<!-- 
   <h2>Add Person Details</h2>
 
-  <button>Submit</button>
+  <button>Submit</button> -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
