@@ -3,10 +3,14 @@ body {
   font-size: 18px;
   line-height: 34px;
   color: #777;
+<<<<<<< Updated upstream
   background-image: url("../images/bg3.jpg");
   background-repeat: repeat-y;
   background-size: 1900px;
   margin: 3% 18% 10% 18%;;
+=======
+  /* background: url("../images/concrete_seamless.png"); */
+>>>>>>> Stashed changes
 }
 
 
@@ -14,6 +18,7 @@ body {
 	margin: 2%;
 }
 
+<<<<<<< Updated upstream
 
 .card-body,h4 {
 	color: #5a2d0c;
@@ -60,3 +65,8 @@ h1{
 p {
 	color: #5a2d0c;
 }
+=======
+.btn-group {
+  margin: 2% 0%;
+}
+>>>>>>> Stashed changes

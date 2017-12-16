@@ -6,10 +6,13 @@
      storageBucket: "",
      messagingSenderId: "366510537615"
  };
- firebase.initializeApp(config);
+ if (!firebase.apps.length) {
+    firebase.initializeApp(config);
+}
+//  firebase.initializeApp(config);
 
  var db = firebase.database();
- 
+ var familyGroupOf = "";
  var myFamilyInfo;
 
  myFamilyInfo = [
@@ -23,14 +26,58 @@
      { 'link': '4b', 'firstname': 'fn_kid2', 'lastname': 'ln_kid2', 'dob': '1/1/2015', 'birthplace': '', 'hobbies': '', 'occupation':'', 'profilepic': '', 'favmovie':'', 'favquote':'', 'favsong':''  }
  ]
 
- myFamilyInfo.forEach(function(person) {
-     console.log(person.link, person.firstname);
-     
+//  myFamilyInfo.forEach(function(person) {
+//      console.log(person.link, person.firstname);
+//     })
        
-     db.ref().push({
-        trainName: trainName,
-        destination: destination,
-        firstTrainTime: firstTrainTime,
-        frequency: frequency
-    });
- })
+$('.form-control').on('click', function() {
+    if (familyGroupOf == "") {
+        alert('Please select - Family Member for ... ');
+    }
+})
+
+    $('#submit').on('click', function() {
+        event.preventDefault();
+        
+        var firstName, lastName, birthDate, birthPlace, hobbies, occupation, profilePic, favMovie, favQuote, favSong;
+
+        firstName = $('#firstNameInput').val().trim();
+        lastName = $('#lastNameInput').val().trim();
+        birthDate = $('#dobInput').val().trim();
+        birthPlace = $('#birthPlaceInput').val().trim();
+        hobbies = $('#hobbiesInput').val().trim();
+        
+        // to be updated with the actual one.
+        occupation = 'occupation';
+        profilePic = '';
+        favMovie = 'My Fav Movie';
+        favQuote = 'My fav Quote';
+        favSong = 'My fav Song';
+
+
+        console.log(firstName, lastName, birthDate, birthPlace, hobbies);
+
+        db.ref().push({
+            firstName: firstName,
+            lastName: lastName,
+            birthDate: birthDate,
+            birthPlace: birthPlace,
+            hobbies: hobbies,
+            occupation: occupation,
+            profilePic: profilePic,
+            favMovie:favMovie,
+            favQuote:favQuote,
+            favSong: favSong
+       });
+   
+
+});
+
+$('.familyGroup').on('click', function() {
+    console.log(this.name);
+    familyGroupOf = this.name;
+    $('.familyGroup').css({'background':'lightgrey'});
+    $(this).css({'background':'lightblue'});
+})
+
+$('.familyGroup').css({'background':'lightgrey'});
