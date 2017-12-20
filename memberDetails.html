@@ -48,30 +48,32 @@
       <li><h3 id = "hobbies">Hobbies: Cooking, Travel</h3><li>
       <li><h3 id = "occupation">Occupation: Seamtress</h3><li>
       <li><h3 id = "favoriteSong">Favorite Song: La Nave Del Olvido</h3><li>
-      <li><h3 id = "favoriteMovie">Favorite Movie: Unknown</h3><li>
+      <li><h3 id = "favoriteMovie">Favorite Movie: Gone With the Wind</h3><li>
       </ul>
     </div>
   </div>
 </div>
-
-
+<!-- test div for giphys -->
+<div id="occupation-1">
+</div>
+<!-- closing test div for giphys -->
 <div class="row">
   <div class="col-md-6">
     <img src="assets/images/sewing.jpg" alt="occupation" style="width: 70%; height: auto; object-fit: cover; padding-top:20px">
     <h2 class="img-text" id="occupation">seamstress</h2>
   </div>
   <div class="col-md-6">
-    <img src="assets/images/sewing2.jpg" alt="family" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
+    <img id="occupation-2" src="assets/images/sewing2.jpg" alt="occupation" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
     <h2 class="img-text" id="occupation">seamstress</h2>
   </div>
  </div>              
   <div class="row">
     <div class="col-md-6">
-      <img src="assets/images/tamales.jpg" alt="snowboarding" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
+      <img id="hobby-1" src="assets/images/tamales.jpg" alt="snowboarding" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
       <h2 id="hobby1" class="img-text">cooking</h2>
     </div>
 <div class="col-md-6">
-      <img src="assets/images/vallarta.jpg" alt="snowboarding" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
+      <img id="hobby-2" src="assets/images/vallarta.jpg" alt="snowboarding" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
       <h2 id="hobby2" class="img-text">travel</h2>
     </div>
     </div> 
@@ -82,23 +84,26 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <iframe id="faveVideo" width="420" height="345"></iframe><h2>La Nave Del Olvido</h2>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <iframe id="faveVideo" width="420" height="345"></iframe>
     </div>
+  </div>
+<br><br>
 <!-- IMDB API -->
-    <div class="col-xs-12 col-sm-3 col-md3 col-lg-3">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md6 col-lg-6">
       <img id="moviePoster" alt="unknown" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
     </div>
 
-    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <table class="table">
         <thead>
          <tr>
-           <th>Movie Name</th>
-           <th>Year</th>
-           <th>Actors</th>
-           <th>Rotten Tomatoes Rating</th>
-           <th>Box Office</th>
+           <th><h4>Movie Name</h4></th>
+           <th><h4>Year</h4></th>
+           <th><h4>Actors</h4></th>
+           <th><h4>Rotten Tomatoes Rating</h4></th>
+           <th><h4>Box Office</h4></th>
           </tr>
         </thead>
        <tbody>
@@ -112,18 +117,16 @@
         </tr>
         </tbody>
       </table>
-        <h2>Favorite Movie</h2>
-  </div>
-    </div>   
-
+    </div>
+  </div>   
 </div>
 
-
+<br><br>
 <!-- Wiki API -->
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <h1>World News in 1929</h1>
+  <h1>In News the Year You Were Born</h1>
   <input id="searchTerm" name="search" placeholder="Search..">
   <button id='search' type="button" class ="btn btn-primary">Submit</button>
   <div id="output"></div>
