@@ -98,10 +98,12 @@ p {
   margin: 2% 0%;
 }
 
-
 #faveVideo {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
+table {
+	background: lightgrey;
+}
