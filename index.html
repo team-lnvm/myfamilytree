@@ -17,10 +17,27 @@
         </div>
     </header>
     <div id="main-container" class="container">
+        <div id="displayTree" class="tree">
+            <ul>
+                <li><a href="#" target="_blank">Grand Father</a></li>
+                <li><a href="#" target="_blank">Grand Mother</a></li>
+                    <ul>
+                        <li><a href="#" target="_blank">Father</a></li>
+                        <li><a href="#" target="_blank">Mother</a>
+                            <ul>
+                                <li><a href="#" target="_blank">Self</a></li>
+                                <li><a href="#" target="_blank">Spouse</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <br
         <div id="showFamilyTree">
             <table class="table">
                 <thead class="thead-light">
-                  <!-- firstName, lastName, birthDate, birthPlace, hobbies, occupation, profilePic, favMovie, favQuote, favSong -->
+                    <!-- firstName, lastName, birthDate, birthPlace, hobbies, occupation, profilePic, favMovie, favQuote, favSong -->
                     <tr>
                         <th scope="col">Primary Member</th>
                         <th scope="col">Relationship</th>
