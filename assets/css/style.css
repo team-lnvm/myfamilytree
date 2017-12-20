@@ -66,14 +66,16 @@ h2 {
     font-family: 'Homemade Apple', cursive;
 }
 
-h4 {
+h4, td {
 	font-family: 'Amatic SC', cursive;
 	font-weight: bold;
 	font-size: 30px;
+	color: #5a2d0c;
 }
 h1{
 	font-family: 'Homemade Apple', cursive;
 	font-size:50px;
+	color: #5a2d0c;
 }
 .navbar-brand {
 	color: #2d1606;
@@ -82,14 +84,24 @@ h1{
 	font-size:26px;
 }
 .well {
-	background-color: #baaea1;
 	font-size: 20px;
+	background-image: url("../images/bg3.jpg");
+    background-repeat: repeat-x;
+    width: 80%;
 }
 p {
 	color: #5a2d0c;
 }
 
+
 .btn-group {
   margin: 2% 0%;
+}
+
+
+#faveVideo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
