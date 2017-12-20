@@ -17,17 +17,24 @@ body {
 	background-size: cover;
 	/*background-attachment: fixed;*/
 	z-index: -1;
-
-
 }
+/*
+.boxed {
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+	border: 2px solid #73AD21;
+}*/ 
+
 
 /* makes form transparent*/
 
 	.panel.panel-default {
 	z-index: 1;
 	opacity: 0.6;
-	position: ;
-	filter: alpha(opacity=60);
+	filter: alpha(opacity=90);
+	background-color: #737373;
 }
 /* makes text not tranparent */
 	.panel.panel-default.p {
@@ -35,7 +42,11 @@ body {
     font-weight: bold;
     color: #000;
 	}
-
+	
+	div#formheading.panel-heading {
+		background-color: #4f64a6;
+		filter: alpha(opacity=90);
+	}
 
 
 .form-group {

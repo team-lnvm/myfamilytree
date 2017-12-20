@@ -76,8 +76,8 @@ $('.form-control').on('click', function() {
 $('.familyGroup').on('click', function() {
     console.log(this.name);
     familyGroupOf = this.name;
-    $('.familyGroup').css({'background':'lightgrey'});
-    $(this).css({'background':'lightblue'});
+    $('.familyGroup').css({'background':'#80ff80'});
+    $(this).css({'background':'lightgrey'});
 })
 
-$('.familyGroup').css({'background':'lightgrey'});
+$('.familyGroup').css({'background':'#80ff80'});
