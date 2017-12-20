@@ -38,6 +38,7 @@ database.ref().on('child_added', function(child) {
      var favQuote = child.val().favQuote;
      var favSong = child.val().favSong;
 console.log(firstName + " " + lastName);
+console.log(birthDate);
 if(firstName==="Leon"){
 $("#fullName").append(firstName + " " + lastName);
 $("#age").append("Age: " + birthDate);
@@ -50,6 +51,11 @@ $("#faveQuote").append(favQuote);
 $("#job").append(occupation);
 $("#jobtoo").append(occupation);
 getfavesong(favSong);
+getfavemovie(favMovie);
+//Moment.js to convert DOB to just the year to use for wiki API
+var yearofBirth = moment(birthDate, "MM/DD/YYYY").format("YYYY");
+console.log(yearofBirth);
+getnews(yearofBirth);
 }
 
     });
@@ -77,8 +83,9 @@ var youtubeURL;
 ////////////////////////////////////////////////////////////////////////////
 // IMDB API
 //movieName needs to have a + between each word
-    var movieName = "gone+with+the+wind";
-    var queryURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+function getfavemovie(favMovie){
+    //var movieName = favmovie;
+    var queryURL = "https://www.omdbapi.com/?t=" + favMovie + "&y=&plot=short&apikey=trilogy";
 
     $.ajax({
       url: queryURL,
@@ -103,39 +110,15 @@ var youtubeURL;
       var posterURL = response.Poster;
 	console.log(posterURL);
 	$("#moviePoster").attr("src",posterURL);
-    });
-
+    })
+}
 
  //wiki API
-
+function getnews(yearofBirth){
 $(function() {
-  // where searchTerm will be the Birth Year
-    $("#searchTerm").keypress(function(e){
-    	if(e.keyCode===13){
-    		var searchTerm = $("#searchTerm").val();
-		    var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+ searchTerm + "%20world%20news" + "&format=json&callback=?"; 
-            console.log(url);
-		    $.ajax({
-			url: url,
-			type: 'GET',
-			contentType: "application/json; charset=utf-8",
-			async: false,
-        	dataType: "json",
-        	success: function(data, status, jqXHR) {
-        		//console.log(data);
-        		$("#output").html();
-        		for(var i=0;i<data[1].length;i++){
-        			$("#output").prepend("<div><div class='well'><a href="+data[3][i]+"><h2>" + data[1][i]+ "</h2>" + "<p>" + data[2][i] + "</p></a></div></div>");
-        		}
 
-        	}
-		})
-    	}
-    });
 // click ajax call
-    $("#search").on("click", function() {
-    	var searchTerm = $("#searchTerm").val();
-		var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+ searchTerm + "&format=json&callback=?"; 
+		var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+ yearofBirth + "&format=json&callback=?"; 
 		$.ajax({
 			url: url,
 			type: 'GET',
@@ -160,9 +143,10 @@ $(function() {
 		})
 		.always(function() {
 			console.log("WikiAPI complete");
+    })
 		});
-	});
-});
+	};
+
 //wikipedia gives 10 results by default
 ////////////////////////////////////////////////////////////////////////////
 //TO DO: Get giphys for hobbies/ occupation GIPHY API

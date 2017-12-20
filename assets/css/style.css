@@ -8,12 +8,8 @@ body {
     background-repeat: repeat-y;
     background-size: 1900px;
     margin: 3% 18% 10% 18%;
-    background: url("../images/family_layout.jpg");
     height: 100%;
 
-    background-position: static;
-    background-repeat: no-repeat;
-    background-size: cover;
     /*background-attachment: fixed;*/
     z-index: -1;
 }
@@ -83,13 +79,13 @@ h4,
 td {
     font-family: 'Amatic SC', cursive;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 28px;
     color: #5a2d0c;
 }
 
 h1 {
     font-family: 'Homemade Apple', cursive;
-    font-size: 20px;
+    font-size: 36px;
     color: #5a2d0c;
 }
 
