@@ -8,8 +8,7 @@
 
   <title>Family Member</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.jpg" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src = "assets/javascript/memberDetails.js"></script>
+
 
   <!-- Bootstrap CDN -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -33,22 +32,22 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <div class="card" style="width: 20rem;">
-          <img class="card-img-top" src="assets/images/lucia.jpg" alt="family member" style="width:300px;height:auto;">
+          <img class="card-img-top" id="grandmother" src="assets/images/lucia.jpg" alt="family member" style="width:300px;height:auto;">
           <div class="card-body">
-            <h1 class="card-title" id="fullName">Lucia Navarro</h1>
-            <h4 class="card-text" id="faveQuote">En todo y en cada cosa, siempre he visto la mano del todopoderoso<br>-Lucia</h4>
+            <h1 class="card-title" id="fullName"></h1>
+            <h4 class="card-text" id="faveQuote"></h4>
           </div>
         </div>
       </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <ul style="list-style-type:none">
-      <li><h3 id = "age">Age: 82</h3></li>
-      <li><h3 id = "birthPlace">Place of Birth: Mezcala, Mexico</h3><li>
-      <li><h3 id = "hobbies">Hobbies: Cooking, Travel</h3><li>
-      <li><h3 id = "occupation">Occupation: Seamtress</h3><li>
-      <li><h3 id = "favoriteSong">Favorite Song: La Nave Del Olvido</h3><li>
-      <li><h3 id = "favoriteMovie">Favorite Movie: Gone With the Wind</h3><li>
+      <li><h3 id = "age"></h3></li>
+      <li><h3 id = "birthPlace"></h3><li>
+      <li><h3 id = "hobbies"></h3><li>
+      <li><h3 id = "occupation"></h3><li>
+      <li><h3 id = "favoriteSong"></h3><li>
+      <li><h3 id = "favoriteMovie"></h3><li>
       </ul>
     </div>
   </div>
@@ -60,11 +59,11 @@
 <div class="row">
   <div class="col-md-6">
     <img src="assets/images/sewing.jpg" alt="occupation" style="width: 70%; height: auto; object-fit: cover; padding-top:20px">
-    <h2 class="img-text" id="occupation">seamstress</h2>
+    <h2 class="img-text" id="job"></h2>
   </div>
   <div class="col-md-6">
     <img id="occupation-2" src="assets/images/sewing2.jpg" alt="occupation" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
-    <h2 class="img-text" id="occupation">seamstress</h2>
+    <h2 class="img-text" id="jobtoo"></h2>
   </div>
  </div>              
   <div class="row">
@@ -85,7 +84,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <iframe id="faveVideo" width="420" height="345"></iframe>
+      <iframe src="about:blank" id="faveVideo" width="420" height="345"></iframe>
     </div>
   </div>
 <br><br>
@@ -131,5 +130,8 @@
   <button id='search' type="button" class ="btn btn-primary">Submit</button>
   <div id="output"></div>
 </div>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src = "assets/javascript/memberDetails.js"></script>
 </body>
 </html>

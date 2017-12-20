@@ -1,17 +1,80 @@
+ // pull info from firebase
+ var config = {
+     apiKey: "AIzaSyARMPdpDN2epPHbAZonLwKWrG3wwy2aDlA",
+     authDomain: "myfamilytree-6d9aa.firebaseapp.com",
+     databaseURL: "https://myfamilytree-6d9aa.firebaseio.com",
+     projectId: "myfamilytree-6d9aa",
+     storageBucket: "",
+     messagingSenderId: "517616803052"
+ };
+//we're starting up firebase (turning it on, basically). this needs to be done, otherwise line 12 will fail
+firebase.initializeApp(config);
+//create variable called database to avoid calling out firebase.database every time
+var database = firebase.database();
+//create on click of any image to pull the family member's info from firebase
+$("img").on("click",function() {
+  console.log("Image was clicked");
+//clear all fields from previous family member
+$("#age").val("");
+$("#birthPlace").val("");
+$("#hobbies").val("");
+$("#occupation").val("");
+$("#favoriteSong").val("");
+$("#favoriteMovie").val("");
+}); 
+//pull data from firebases
+database.ref().on('child_added', function(child) {
+
+     var familyGroupOf = child.val().familyGroupOf;
+     var relationship = child.val().relationship;
+     var firstName = child.val().firstName;
+     var lastName = child.val().lastName;
+     var birthDate = child.val().birthDate;
+     var birthPlace = child.val().birthPlace;
+     var hobbies = child.val().hobbies;
+     var occupation = child.val().occupation;
+     var profilePic = child.val().profilePic;
+     var favMovie = child.val().favMovie;
+     var favQuote = child.val().favQuote;
+     var favSong = child.val().favSong;
+console.log(firstName + " " + lastName);
+if(firstName==="Leon"){
+$("#fullName").append(firstName + " " + lastName);
+$("#age").append("Age: " + birthDate);
+$("#birthPlace").append("Place of Birth: " + birthPlace);
+$("#hobbies").append("Hobbies: " + hobbies);
+$("#occupation").append("Occupation: " + occupation)
+$("#favoriteSong").append("Favorite Song: " + favSong);
+$("#favoriteMovie").append("Favorite Movie: " + favMovie);
+$("#faveQuote").append(favQuote);
+$("#job").append(occupation);
+$("#jobtoo").append(occupation);
+getfavesong(favSong);
+}
+
+    });
+
 // Youtube API
+function getfavesong(favSong){
+var youtubeURL;
     $.ajax({
     	//replace avemaria with favorite song submission from form
-    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=lanavedelolvido&key=AIzaSyDykB9j6toAsoXNLuQcM8lJw_Wck_jynPE",
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q="+favSong+"&key=AIzaSyDykB9j6toAsoXNLuQcM8lJw_Wck_jynPE",
     type: 'GET',
     contentType: "application/json; charset=utf-8",
     dataType: "json"}).done(function(data){
 	console.log(data);
 	console.log("youTube video ID: " + data.items[0].id.videoId);
-	var youtubeURL = "https://www.youtube.com/embed/"+data.items[0].id.videoId;
+	youtubeURL = "https://www.youtube.com/embed/"+data.items[0].id.videoId;
+  
 	console.log("youTube complete URL: " + youtubeURL);
-	$("#faveVideo").attr("src",youtubeURL);
-     })
-
+	//$("#faveVideo").attr("src",youtubeURL);
+    }).done(function(){
+    console.log("youTube complete URL: " + youtubeURL);
+    $("#faveVideo").attr("src", youtubeURL);
+  })
+}
+////////////////////////////////////////////////////////////////////////////
 // IMDB API
 //movieName needs to have a + between each word
     var movieName = "gone+with+the+wind";
