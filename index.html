@@ -19,8 +19,8 @@
     <div id="main-container" class="container">
         <div id="displayTree" class="tree">
             <ul>
-                <li><a href="#" target="_blank">Grand Father</a></li>
-                <li><a href="#" target="_blank">Grand Mother</a></li>
+                <li><a href="#" id='grandFather' firstName='helloGF' target="_blank">Grand Father</a></li>
+                <li><a href="#" target="_blank">Grand Mother</a>
                     <ul>
                         <li><a href="#" target="_blank">Father</a></li>
                         <li><a href="#" target="_blank">Mother</a>
@@ -33,89 +33,88 @@
                 </li>
             </ul>
         </div>
-        <br
-        <div id="showFamilyTree">
-            <table class="table">
-                <thead class="thead-light">
-                    <!-- firstName, lastName, birthDate, birthPlace, hobbies, occupation, profilePic, favMovie, favQuote, favSong -->
-                    <tr>
-                        <th scope="col">Primary Member</th>
-                        <th scope="col">Relationship</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Birth Date</th>
-                        <th scope="col">Birth Place</th>
-                        <th scope="col">Hobbies</th>
-                        <th scope="col">Occupation</th>
-                        <th scope="col">ProfilePic</th>
-                        <th scope="col">Favorite Movie</th>
-                        <th scope="col">Favorite Quote</th>
-                        <th scope="col">Favorite Song</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <form>
-            <div id='addFamilyMember' class="panel panel-default">
-                <div class="panel-heading" id="formheading">
-                    Add Family Member for ...
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default familyGroup" name="Navin">Navin</button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default familyGroup" name="Veronica">Veronica</button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default familyGroup" name="Leon">Leon</button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-default familyGroup" name="Monica">Monica</button>
-                        </div>
+        <br <div id="showFamilyTree">
+        <table class="table">
+            <thead class="thead-light">
+                <!-- firstName, lastName, birthDate, birthPlace, hobbies, occupation, profilePic, favMovie, favQuote, favSong -->
+                <tr>
+                    <th scope="col">Primary Member</th>
+                    <th scope="col">Relationship</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Birth Date</th>
+                    <th scope="col">Birth Place</th>
+                    <th scope="col">Hobbies</th>
+                    <th scope="col">Occupation</th>
+                    <th scope="col">ProfilePic</th>
+                    <th scope="col">Favorite Movie</th>
+                    <th scope="col">Favorite Quote</th>
+                    <th scope="col">Favorite Song</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <form>
+        <div id='addFamilyMember' class="panel panel-default">
+            <div class="panel-heading" id="formheading">
+                Add Family Member for ...
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default familyGroup" name="Navin">Navin</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default familyGroup" name="Veronica">Veronica</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default familyGroup" name="Leon">Leon</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default familyGroup" name="Monica">Monica</button>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-form-label" for="Relationship">Relationship </label>
-                    <select id="relationWithMain">
-                        <option id="self">Self</option>
-                        <option id="grandfather">Grand Father</option>
-                        <option id="grandmother">Grand Mother</option>
-                        <option id="father">Father</option>
-                        <option id="mother">Mothert</option>
-                        <option id="brother">Brother</option>
-                        <option id="sister">Sister</option>
-                        <option id="son">Son</option>
-                        <option id="daughter">Son</option>
-                    </select>
-                    <br>
-                    <label class="col-form-label" for="firstName">First Name</label>
-                    <input type="text" class="form-control" id="firstNameInput" placeholder="Enter First Name">
-                    <label class="col-form-label" for="firstName">Last Name</label>
-                    <input type="text" class="form-control" id="lastNameInput" placeholder="Enter Last Name">
-                    <label class="col-form-label" for="dob">Date of Birth (MM/DD/YYYY)</label>
-                    <input type="text" class="form-control" id="dobInput" placeholder="Enter Date of Birth">
-                    <label class="col-form-label" for="birthPlace">Birth Place</label>
-                    <input type="text" class="form-control" id="birthPlaceInput" placeholder="Enter Birth Place">
-                    <label class="col-form-label" for="Occupation">Occupation</label>
-                    <input type="text" class="form-control" id="occupationInput" placeholder="Enter your occupation ">
-                    <label class="col-form-label" for="hobbies">Hobbies</label>
-                    <input type="text" class="form-control" id="hobbiesInput" placeholder="Enter your favorite hobby">
-                    <label class="col-form-label" for="favoriteMovie">Favorite Movie</label>
-                    <input type="text" class="form-control" id="favoriteMovieInput" placeholder="Enter your favorite movie ">
-                    <label class="col-form-label" for="favoriteQuote">Favorite Quote</label>
-                    <input type="text" class="form-control" id="favoriteQuoteInput" placeholder="Enter your favorite quote ">
-                    <label class="col-form-label" for="favoriteSong">Favorite Song</label>
-                    <input type="text" class="form-control" id="favoriteSongInput" placeholder="Enter your favorite song ">
-                    <label class="col-form-label" for="favoriteSong">Add Your Photo</label>
-                    <form action="/action_page.php">
-                        <input type="file" name="profilePic" accept="image/*">
-                    </form>
-                </div>
             </div>
-            <button id='submit' type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            <div class="form-group">
+                <label class="col-form-label" for="Relationship">Relationship </label>
+                <select id="relationWithMain">
+                    <option id="self">Self</option>
+                    <option id="grandfather">Grand Father</option>
+                    <option id="grandmother">Grand Mother</option>
+                    <option id="father">Father</option>
+                    <option id="mother">Mothert</option>
+                    <option id="brother">Brother</option>
+                    <option id="sister">Sister</option>
+                    <option id="son">Son</option>
+                    <option id="daughter">Son</option>
+                </select>
+                <br>
+                <label class="col-form-label" for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstNameInput" placeholder="Enter First Name">
+                <label class="col-form-label" for="firstName">Last Name</label>
+                <input type="text" class="form-control" id="lastNameInput" placeholder="Enter Last Name">
+                <label class="col-form-label" for="dob">Date of Birth (MM/DD/YYYY)</label>
+                <input type="text" class="form-control" id="dobInput" placeholder="Enter Date of Birth">
+                <label class="col-form-label" for="birthPlace">Birth Place</label>
+                <input type="text" class="form-control" id="birthPlaceInput" placeholder="Enter Birth Place">
+                <label class="col-form-label" for="Occupation">Occupation</label>
+                <input type="text" class="form-control" id="occupationInput" placeholder="Enter your occupation ">
+                <label class="col-form-label" for="hobbies">Hobbies</label>
+                <input type="text" class="form-control" id="hobbiesInput" placeholder="Enter your favorite hobby">
+                <label class="col-form-label" for="favoriteMovie">Favorite Movie</label>
+                <input type="text" class="form-control" id="favoriteMovieInput" placeholder="Enter your favorite movie ">
+                <label class="col-form-label" for="favoriteQuote">Favorite Quote</label>
+                <input type="text" class="form-control" id="favoriteQuoteInput" placeholder="Enter your favorite quote ">
+                <label class="col-form-label" for="favoriteSong">Favorite Song</label>
+                <input type="text" class="form-control" id="favoriteSongInput" placeholder="Enter your favorite song ">
+                <label class="col-form-label" for="favoriteSong">Add Your Photo</label>
+                <form action="/action_page.php">
+                    <input type="file" name="profilePic" accept="image/*">
+                </form>
+            </div>
+        </div>
+        <button id='submit' type="submit" class="btn btn-primary">Submit</button>
+    </form>
     </div>
     <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
