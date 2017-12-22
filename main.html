@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Family Member</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.jpg" />
+
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Homemade+Apple|Love+Ya+Like+A+Sister|Pangolin|Special+Elite" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- test div for giphys -->
+<div id="occupation-1">
+</div>
+<!-- closing test div for giphys -->
+<div class="row">
+  <div class="col-md-6">
+    <img id="grandma" src="assets/images/lucia.jpg" alt="occupation" style="width: 70%; height: auto; object-fit: cover; padding-top:20px">
+    <h2 class="img-text" id="grandmother"></h2>
+  </div>
+  <div class="col-md-6">
+<!-- with charlie firstname will be what is stored in firebase .note: veronica will be dynamic-->
+   <a href="memberDetails.html?firstName=Leon"><img id="self" src="assets/images/me.jpg" alt="occupation" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";></a>
+    <h2 class="img-text" id="self"></h2>
+  </div>
+ </div>              
+  <div class="row">
+    <div class="col-md-6">
+      <img id="daughter" src="assets/images/kiki.jpg" alt="snowboarding" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
+      <h2 id="kiki" class="img-text"></h2>
+    </div>
+  <div class="col-md-6">
+      <img id="nephew" src="assets/images/jayce1.jpg" alt="snowboarding" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
+      <h2 id="hobbiestoo" class="img-text"></h2>
+  </div>
+
+</div> 
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src = "assets/javascript/memberDetails.js"></script>
+</body>
+</html>

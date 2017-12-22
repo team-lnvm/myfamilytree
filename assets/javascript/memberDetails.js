@@ -39,9 +39,9 @@ database.ref().on('child_added', function(child) {
      var favSong = child.val().favSong;
 console.log(firstName + " " + lastName);
 console.log(birthDate);
-if(firstName==="Leon"){
+if(firstName===getParameterByName('firstName')){
 $("#fullName").append(firstName + " " + lastName);
-$("#age").append("Age: " + birthDate);
+$("#age").append("Birth Date: " + birthDate);
 $("#birthPlace").append("Place of Birth: " + birthPlace);
 $("#hobbies").append("Hobbies: " + hobbies);
 $("#occupation").append("Occupation: " + occupation)
@@ -50,12 +50,16 @@ $("#favoriteMovie").append("Favorite Movie: " + favMovie);
 $("#faveQuote").append(favQuote);
 $("#job").append(occupation);
 $("#jobtoo").append(occupation);
+$("#hobbies").append(occupation);
+$("#hobbiestoo").append(hobbies);
 getfavesong(favSong);
 getfavemovie(favMovie);
 //Moment.js to convert DOB to just the year to use for wiki API
 var yearofBirth = moment(birthDate, "MM/DD/YYYY").format("YYYY");
 console.log(yearofBirth);
+//run wikiAPI function
 getnews(yearofBirth);
+
 }
 
     });
@@ -149,73 +153,38 @@ $(function() {
 
 //wikipedia gives 10 results by default
 ////////////////////////////////////////////////////////////////////////////
-//TO DO: Get giphys for hobbies/ occupation GIPHY API
-var APIKey = "dc6zaTOxFJmzC";
-    $("#search").on("click", function() {
-      //this will empty all the previously loaded gifs, so that we only see the ones for the currently clicked band
-      $("#occupation-1").empty();
-      // In this case, the "this" keyword refers to the occupation?
-      var famInfo = "seamstress";
+//TO DO: Get images Flikr API for occupation and hobbies (using setID) try udiin
+function getImgs(setId) {
+  var URL = "https://api.flickr.com/services/rest/" +  // Wake up the Flickr API gods.
+    "?method=flickr.photos.search" +  // Get photo from a search term. http://www.flickr.com/services/api/flickr.photosets.getPhotos.htm
+    "&api_key=b3b0381319f596ff9613a686bab28c46" +  // API key
+    "&text=" + "cooking" +  // The search term.
+    "&privacy_filter=1" +  // 1 signifies all public photos.
+    "&per_page=2" + // Set # of photos wanted, selected 2
+    "&format=json&nojsoncallback=1";  
 
-      // Constructing a URL to search Giphy for the name of the person who said the quote
-      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        famInfo + "&api_key=dc6zaTOxFJmzC&limit=1";
-        console.log(queryURL);
-
-      // Performing our AJAX GET request
-      $.ajax({
-          url: queryURL,
-          method: "GET"
-        })
-        // After the data comes back from the API
-        .done(function(response) {
-          console.log(response);
-          // Storing an array of results in the results variable
-          var results = response.data;
-
-          // Looping over every result item
-          for (var i = 0; i < results.length; i++) {
-
-              // Creating an image tag with class item
-              var famImage = $("<img class='item'>");
-
-              // Giving the image tag an src attribute of a proprty pulled off the giphy website: https://developers.giphy.com/docs/
-              // result item. setting the source = to results[i].images.original.url. 
-              //the source is the master, it's what displays when the page is loaded
-              //we want it to be still to start, and animate when clicked
-              famImage.attr("src", results[i].images.original_still.url);
-              //set data-animate = to source
-              famImage.attr("data-animate", results[i].images.original.url);
-              //from giphy developer doucmentation, we can use the console window or the website for this 
-              famImage.attr("data-still", results[i].images.original_still.url);
-              famImage.attr("data-state", "still");
-
-              console.log(results[i].images.original.url);
-              // Appending the paragraph and personImage we created to the "gifDiv" div we created
-              gifDiv.append(p);
-              gifDiv.append(fanImage);
-
-              // Prepending the gifDiv to the "#occupation-1" div in the HTML
-              $("#occupation-1").prepend(gifDiv);
-            
-          }
-        });
+  // See the API in action here: http://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
+  $.getJSON(URL, function(data){
+    console.log(data);
+    $.each(data.photos.photo, function(i, item){
+      // Creating the image URL. Info: http://www.flickr.com/services/api/misc.urls.html
+      var img_src = "http://farm" + item.farm + ".static.flickr.com/" + item.server + "/" + item.id + "_" + item.secret + "_m.jpg";
+      var img_thumb = $("<img/>").attr("src", img_src).css("margin", "8px")
+      $(img_thumb).appendTo("#flickr");
     });
-//TO DO: when still gif is clicked, gif with class = "item" should toggle between a still to animate
-//can't use .on click for dynamically added objects (ie. the gifs came )
-    //$(".item").on("click", function() {
+  });
+}
 
-      $('body').on('click', '.item', function() {
-            // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-      var state = $(this).attr("data-state");
-      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-      // Then, set the image's data-state to animate
-      // Else set src to the data-still value
-      if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate"));
-        $(this).attr("data-state", "animate");
-      } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
-      }
-    });
+$(document).ready(function() {
+  getImgs("72157632700264359"); // Call the function!
+});
+//for main html linking to memberDetails.html
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
