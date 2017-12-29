@@ -49,7 +49,10 @@ body {
     margin: 2%;
 }
 
+#displayTree {
+	margin: 2%;
 
+}
 .card-body,
 h4 {
     color: #5a2d0c;
