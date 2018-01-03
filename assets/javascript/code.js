@@ -25,7 +25,8 @@ var familyGroupOf = "";
 //     { 'link': '4a', 'firstname': 'fn_kid1', 'lastname': 'ln_kid1', 'dob': '1/1/2010', 'birthplace': '', 'hobbies': '', 'occupation': '', 'profilepic': '', 'favmovie': '', 'favquote': '', 'favsong': '' },
 //     { 'link': '4b', 'firstname': 'fn_kid2', 'lastname': 'ln_kid2', 'dob': '1/1/2015', 'birthplace': '', 'hobbies': '', 'occupation': '', 'profilepic': '', 'favmovie': '', 'favquote': '', 'favsong': '' }
 // ]
-
+var familyTreeArr = ['grandFather', 'grandMother', 'father', 'mother', 'self', 'spouse', 'child1', 'child2', 'child3', 'child4'];
+$('#displayTree').hide();
 
 $('.form-control').on('click', function() {
     if (familyGroupOf == "") {
@@ -88,10 +89,18 @@ $('.viewFamilyGroup').on('click', function() {
     $(this).css({ 'background': 'lightblue' });
 
     getDetailsOfSelectedUserFromDB(this.name);
+    familyTreeArr.forEach(function(element) {
+        if ($('#' + element).text() === "") {
+            $('#' + element).hide();
+        }
+
+    });
+    $('#displayTree').show();
 
 })
 
 $('.familyGroup').css({ 'background': 'lightgrey' });
+
 
 db.ref().on('child_added', function(child) {
 
@@ -128,9 +137,10 @@ db.ref().on('child_added', function(child) {
         $("table tbody").append(markup);
     }
 
-    displayFamilyTreeOfSelectedUser("");
+    // displayFamilyTreeOfSelectedUser("");
 
 })
+
 
 function displayFamilyTreeOfSelectedUser(selectedUser) {
     selectedUser = "Navin";
@@ -158,35 +168,13 @@ function getDetailsOfSelectedUserFromDB(selectedUser) {
             var favSong = child.val().favSong;
             var relationshipId = child.val().relationshipId;
 
-            $('#'+relationshipId).text(firstName);
-            $('#'+relationshipId).attr("href","memberDetails.html?firstName="+firstName);
-            var userImg = $('<img>').attr({"src":"assets/images/"+firstName+".png","width":"50","height":"50"});
-            $('#'+relationshipId).append(userImg);
+            $('#' + relationshipId).text(firstName);
+            $('#' + relationshipId).attr("href", "memberDetails.html?firstName=" + firstName);
+            var userImg = $('<img>').attr({ "src": "assets/images/" + firstName + ".png", "width": "50", "height": "50" });
+            $('#' + relationshipId).append(userImg);
             // $('#'+relationshipId img).attr("src","assets/images/"+firstName+".png");
 
         }
-
-
-        // if (firstName !== undefined) {
-        //     var markup =
-        //         "<tr>\
-        //  <td>" + familyGroupOf + "</td>\
-        //  <td>" + relationship + "</td>\
-        //  <td>" + firstName + "</td>\
-        //  <td>" + lastName + "</td>\
-        //  <td>" + birthDate + "</td>\
-        //  <td>" + birthPlace + "</td>\
-        //  <td>" + hobbies + "</td>\
-        //  <td>" + occupation + "</td>\
-        //  <td>" + profilePic + "</td>\
-        //  <td>" + favMovie + "</td>\
-        //  <td>" + favQuote + "</td>\
-        //  <td>" + favSong + "</td>\
-        //  </tr>";
-        //     $("table tbody").append(markup);
-        // }
-
-        // displayFamilyTreeOfSelectedUser("");
 
     })
 }
