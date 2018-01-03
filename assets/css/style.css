@@ -111,6 +111,9 @@ h1 {
     width: 80%;
 }
 #formheading {
+	font-family: 'Homemade Apple', cursive;
+	font-size: 46px;
+	color: #5a2d0b;
     background-image: url("../images/bg3.jpg");
     background-repeat: repeat-y;	
 }
@@ -127,6 +130,10 @@ p {
     width: 120px;
     padding: 10px;
     font-size: large;
+}
+#submit:hover {
+	background-color: #bcbf89;
+	color: green;
 }
 .btn-group {
     margin: 2% 0%;
