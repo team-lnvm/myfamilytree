@@ -141,14 +141,15 @@ h1 {
 }
 
 .showhidebutton {
-    background: #cbc0e8;
+    background: #e5d0b8;
+    font-family: 'Amatic SC', cursive;
 }
 
 #formheading {
 	font-family: 'Homemade Apple', cursive;
 	font-size: 46px;
 	color: #5a2d0b;
-    background-image: url("../images/bg2.jpg");
+    background-image: url("../images/bg3.jpg");
     background-repeat: repeat-y;	
 }
 .form-control {
@@ -174,7 +175,8 @@ p {
     margin: 2% 0%;
 }
 .btn {
-	font-size: 20px
+	font-size: 20px;
+
 }
 select {
 	color: #5a2d0b;	

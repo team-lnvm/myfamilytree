@@ -186,7 +186,7 @@ function getDetailsOfSelectedUserFromDB(selectedUser) {
 
             $('#' + relationshipId).text(firstName);
             $('#' + relationshipId).attr("href", "memberDetails.html?firstName=" + firstName);
-            var userImg = $('<img>').attr({ "src": "assets/images/" + firstName + ".png", "width": "70", "height": "70" });
+            var userImg = $('<img>').attr({ "src": "assets/images/" + firstName + ".png", "width": "100", "height": "90" });
             $('#' + relationshipId).append(userImg);
             // $('#'+relationshipId img).attr("src","assets/images/"+firstName+".png");
 
