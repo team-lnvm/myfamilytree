@@ -163,7 +163,7 @@ function getImgs(occupation) {
     "&text=" + occupation +  // The search term.
     "&privacy_filter=1" +  // 1 signifies all public photos.
     "&per_page=1" + // Set # of photos wanted, selected 2
-    "&format=json&nojsoncallback=2";  
+    "&format=json&nojsoncallback=1";  
 
   // See the API in action here: http://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
   $.getJSON(URL, function(data){
@@ -190,7 +190,7 @@ function getImgs(hobbies) {
     "&text=" + hobbies +  // The search term.
     "&privacy_filter=1" +  // 1 signifies all public photos.
     "&per_page=2" + // Set # of photos wanted, selected 2
-    "&format=json&nojsoncallback=2";  
+    "&format=json&nojsoncallback=1";  
 
   // See the API in action here: http://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
   $.getJSON(URL, function(data){
