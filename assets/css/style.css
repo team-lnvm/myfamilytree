@@ -13,6 +13,12 @@ body {
     /*background-attachment: fixed;*/
     z-index: -1;
 }
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: -120px;
+    margin-left: -120px;
+}
 
 
 /* makes form transparent*/
