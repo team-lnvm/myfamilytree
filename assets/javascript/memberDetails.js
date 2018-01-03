@@ -50,7 +50,7 @@ $("#favoriteMovie").append("Favorite Movie: " + favMovie);
 $("#faveQuote").append(favQuote);
 //append occupation title and hobby to images pulled from flickr
 $("#job").append(occupation);
-$("#family_member")..attr({"src":"assets/images/"+firstName+".png","width":"50","height":"50"});
+$("#family_member").attr({"src":"assets/images/"+firstName+".png","width":"50","height":"50"});
 getfavesong(favSong);
 getfavemovie(favMovie);
 getImgs(occupation);

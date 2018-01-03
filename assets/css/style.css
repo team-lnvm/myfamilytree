@@ -19,10 +19,14 @@ body {
 
 .panel.panel-default {
     z-index: 1;
-    opacity: 0.6;
-    filter: alpha(opacity=60);
-    background-color: #737373;
+    background-image: url("../images/bg3.jpg");
+    background-repeat: repeat-x;
 
+}
+
+.panel {
+	background: none;
+	border: none;
 }
 /*
 .boxed {
@@ -41,7 +45,8 @@ body {
 .panel.panel-default.p {
     margin: 5%;
     font-weight: bold;
-    color: #000;
+
+
 }
 
 
@@ -105,12 +110,24 @@ h1 {
     background-repeat: repeat-x;
     width: 80%;
 }
-
+#formheading {
+    background-image: url("../images/bg3.jpg");
+    background-repeat: repeat-y;	
+}
+.form-control {
+	background-color: #dcdec9;
+}
 p {
     color: #5a2d0c;
 }
-
-
+.btn-primary {
+    color: #dcdec9;
+    background-color: #635c4a;
+    border-color: #675441;
+    width: 120px;
+    padding: 10px;
+    font-size: large;
+}
 .btn-group {
     margin: 2% 0%;
 }
