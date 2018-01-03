@@ -27,7 +27,7 @@ body {
 
 .panel.panel-default {
     z-index: 1;
-    background-image: url("../images/bg3.jpg");
+    background-image: url("../images/bg2.jpg");
     background-repeat: repeat-x;
 
 }
@@ -46,6 +46,17 @@ body {
 
 }
 
+#addFamilyMember {
+    float: left;
+}
+
+#displayTree {
+    height: 500px;
+}
+
+.panel-heading {
+    padding: 2% 0%;
+}
 
 .form-group {
     margin: 2%;
@@ -118,11 +129,16 @@ h1 {
     background-repeat: repeat-x;
     width: 80%;
 }
+
+.showhidebutton {
+    background: #cbc0e8;
+}
+
 #formheading {
 	font-family: 'Homemade Apple', cursive;
 	font-size: 46px;
 	color: #5a2d0b;
-    background-image: url("../images/bg3.jpg");
+    background-image: url("../images/bg2.jpg");
     background-repeat: repeat-y;	
 }
 .form-control {

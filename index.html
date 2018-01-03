@@ -58,7 +58,7 @@
                     </li>
                 </ul>
             </div>
-            <br><br><br><br><br><br><br><br>
+            <!-- <br><br><br><br><br><br><br><br><br> -->
 <!-- Uncomment the following to show family member details on main page -->
 <!--              <div id="showFamilyTree">
                 <table class="table">
@@ -83,7 +83,12 @@
                 </table>
             </div> -->
  
-           <br><br>
+           <!-- <br><br> -->
+           
+           <button id='showAddFamily' type="submit" class="btn btn-secondary btn-lg btn-block showhidebutton">Click to Add a Family Member</button>
+          <button id='hideAddFamily' type="submit" class="btn btn-secondary btn-lg btn-block showhidebutton">Hide Add a Family Member</button>
+
+
             <form>
                 <div id='addFamilyMember' class="panel panel-default">
                     <div class="panel-heading" id="formheading">
@@ -136,14 +141,15 @@
                         <input type="text" class="form-control" id="favoriteQuoteInput" placeholder="Enter your favorite quote ">
                         <label class="col-form-label" for="favoriteSong">Favorite Song</label>
                         <input type="text" class="form-control" id="favoriteSongInput" placeholder="Enter your favorite song ">
+
                         <p>.</p>
                         <!-- <label class="col-form-label" for="favoriteSong">Add Your Photo</label> -->
 <!--                         <form action="/action_page.php">
                             <input type="file" name="profilePic" accept="image/*">
                         </form> -->
+                      <button id='submit' type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
-                <button id='submit' type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
         <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>

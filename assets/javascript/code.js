@@ -27,6 +27,22 @@ var familyGroupOf = "";
 // ]
 var familyTreeArr = ['grandFather', 'grandMother', 'father', 'mother', 'self', 'spouse', 'child1', 'child2', 'child3', 'child4'];
 $('#displayTree').hide();
+$('#addFamilyMember').hide();
+$('#hideAddFamily').hide();
+
+
+$('#showAddFamily').on('click', function(){
+    $('#addFamilyMember').show();
+    $('#showAddFamily').hide();
+    $('#hideAddFamily').show();
+})
+
+$('#hideAddFamily').on('click', function(){
+    $('#addFamilyMember').hide();
+    $('#showAddFamily').show();
+    $('#hideAddFamily').hide();
+
+})
 
 $('.form-control').on('click', function() {
     if (familyGroupOf == "") {
@@ -170,7 +186,7 @@ function getDetailsOfSelectedUserFromDB(selectedUser) {
 
             $('#' + relationshipId).text(firstName);
             $('#' + relationshipId).attr("href", "memberDetails.html?firstName=" + firstName);
-            var userImg = $('<img>').attr({ "src": "assets/images/" + firstName + ".png", "width": "50", "height": "50" });
+            var userImg = $('<img>').attr({ "src": "assets/images/" + firstName + ".png", "width": "70", "height": "70" });
             $('#' + relationshipId).append(userImg);
             // $('#'+relationshipId img).attr("src","assets/images/"+firstName+".png");
 
