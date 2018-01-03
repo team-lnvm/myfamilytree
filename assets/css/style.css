@@ -27,7 +27,8 @@ body {
 
 .panel.panel-default {
     z-index: 1;
-    background-image: url("../images/bg2.jpg");
+
+    background-image: url("../images/bg3.jpg");
     background-repeat: repeat-x;
 
 }
@@ -58,6 +59,10 @@ body {
     padding: 2% 0%;
 }
 
+#formheading {
+	border: none;
+}
+
 .form-group {
     margin: 2%;
 }
@@ -65,6 +70,9 @@ body {
 #displayTree {
 	margin: 2%;
 
+}
+label {
+	color: #484643
 }
 .card-body,
 h4 {
@@ -78,7 +86,9 @@ h3 {
     font-family: 'Love Ya Like A Sister', cursive;
     font-size: 28px;
 }
-
+.card-body {
+	margin-left: 35px;
+}
 .img-text {
     position: absolute;
     bottom: 8px;
@@ -142,11 +152,12 @@ h1 {
     background-repeat: repeat-y;	
 }
 .form-control {
-	background-color: #dcdec9;
+	background-color: #d3d3d3;
 }
 p {
     color: #5a2d0c;
 }
+/*submit button styling*/
 .btn-primary {
     color: #dcdec9;
     background-color: #635c4a;
@@ -162,7 +173,14 @@ p {
 .btn-group {
     margin: 2% 0%;
 }
-
+.btn {
+	font-size: 20px
+}
+select {
+	color: #5a2d0b;	
+	background-color: #d3d3d3;
+	font-size: 16px;
+}
 #faveVideo {
     display: block;
     margin-left: auto;
@@ -182,11 +200,12 @@ table {
 }
 
 .tree li {
-	float: left; text-align: center;
+	margin: 20px;
+	float: left; 
+	text-align: center;
 	list-style-type: none;
 	position: relative;
 	padding: 20px 5px 0 5px;
-	
 	transition: all 0.5s;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
@@ -241,15 +260,17 @@ right connector from last child*/
 }
 
 .tree li a{
+	width:100px;
+	height:120px;
 	border: 1px solid #ccc;
-	padding: 5px 10px;
+	padding: 0;
 	text-decoration: none;
 	color: #666;
-	font-family: arial, verdana, tahoma;
-	font-size: 11px;
+	font-family: 'Homemade Apple', cursive;
+	font-size: 14px;
 	display: inline-block;
 	background: lightgrey;
-	border-radius: 5px;
+	border-radius: 2px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	
