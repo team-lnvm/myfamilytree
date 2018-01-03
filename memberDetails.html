@@ -25,7 +25,6 @@
         <a class="navbar-brand" href="index.html">Back to Family Tree</a>
       </nav>
         </a>
-      </div>
     </div>
   </nav>
   
@@ -33,7 +32,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <div class="card" style="width: 20rem;">
-          <img class="card-img-top" id="grandmother" src="assets/images/lucia.jpg" alt="family member" style="width:300px;height:auto;">
+          <img class="card-img-top" id="family_member" src="assets/images/lucia.jpg" alt="family member" style="width:300px;height:auto;">
           <div class="card-body">
             <h1 class="card-title" id="fullName"></h1>
             <h4 class="card-text" id="faveQuote"></h4>
@@ -44,48 +43,35 @@
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <ul style="list-style-type:none">
       <li><h3 id = "age"></h3></li>
-      <li><h3 id = "birthPlace"></h3><li>
-      <li><h3 id = "hobbies"></h3><li>
-      <li><h3 id = "occupation"></h3><li>
-      <li><h3 id = "favoriteSong"></h3><li>
-      <li><h3 id = "favoriteMovie"></h3><li>
+      <li><h3 id = "birthPlace"></h3></li>
+      <li><h3 id = "occupation"></h3></li>
+      <li><h3 id = "hobbies"></h3></li>
+      <li><h3 id = "favoriteSong"></h3></li>
+      <li><h3 id = "favoriteMovie"></h3></li>
       </ul>
     </div>
   </div>
-</div>
-<!-- test div for giphys -->
-<div id="occupation-1">
-</div>
-<!-- closing test div for giphys -->
+
+
 <div class="row">
-  <div class="col-md-6">
-    <img src="assets/images/sewing.jpg" alt="occupation" style="width: 70%; height: auto; object-fit: cover; padding-top:20px">
-    <h2 class="img-text" id="job"></h2>
+  <div id="occupation" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 100%; height: auto; object-fit: cover; padding-top:20px";>
+<!--     <img src="about:blank" id="occupation" alt="occupation" style="width: 70%; height: auto; object-fit: cover; padding-top:20px"> -->
+    <h2 id="occupation_title" class="img-text" id="job"></h2>
   </div>
-  <div class="col-md-6">
-    <img id="occupation-2" src="assets/images/sewing2.jpg" alt="occupation" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
-    <h2 class="img-text" id="jobtoo"></h2>
+</div>
+
+<br><br>
+              
+<div class="row">
+  <div id="hobby" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 100%; height: auto; object-fit: cover; padding-top:20px";>
+    <h2 id="hobbies_title" class="img-text"></h2>
   </div>
- </div>              
-  <div class="row">
-    <div class="col-md-6">
-      <img id="hobby1" src="assets/images/tamales.jpg" alt="snowboarding" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
-      <h2 id="hobbies" class="img-text"></h2>
-    </div>
-  <div class="col-md-6">
-      <img id="hobby2" src="assets/images/vallarta.jpg" alt="snowboarding" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
-      <h2 id="hobbiestoo" class="img-text">s</h2>
-  </div>
+</div>
 
 </div> 
 
 <br><br>
 
-<!-- test for flickr -->
-  <div id="flickr" class="row">
-      <div class="col-md-12">
-      </div>
-  </div>
 <!-- youtube video replace "watch?v=" with "embed/" in the youtube link to display it in webpage -->
 <!-- replace xxxxxx with video ID. console log shows it is "data.items[0].id.videoId" -->
 
@@ -95,25 +81,28 @@
       <iframe src="about:blank" id="faveVideo" width="420" height="345"></iframe>
     </div>
   </div>
-<br><br>
-<!-- IMDB API -->
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md6 col-lg-6">
-      <img id="moviePoster" alt="unknown" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
-    </div>
+</div>
 
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <table class="table">
-        <thead>
-         <tr>
-           <th><h4>Movie Name</h4></th>
-           <th><h4>Year</h4></th>
-           <th><h4>Actors</h4></th>
-           <th><h4>Rotten Tomatoes Rating</h4></th>
-           <th><h4>Box Office</h4></th>
-          </tr>
-        </thead>
-       <tbody>
+<br><br>
+
+<!-- IMDB API -->
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md6 col-lg-6">
+    <img id="moviePoster" alt="unknown" style="width: 70%; height: auto; object-fit: cover; padding-top:20px";>
+  </div>
+
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><h4>Movie Name</h4></th>
+          <th><h4>Year</h4></th>
+          <th><h4>Actors</h4></th>
+          <th><h4>Rotten Tomatoes Rating</h4></th>
+          <th><h4>Box Office</h4></th>
+        </tr>
+      </thead>
+      <tbody>
         <tr>
           <!-- Movie -->
           <td></td>
@@ -122,18 +111,17 @@
           <td></td>
           <td></td>
         </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>   
-</div>
+      </tbody>
+    </table>
+  </div>
+</div>     
 
 <br><br>
 <!-- Wiki API -->
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <h1>In News the Year You Were Born</h1>
+  <h1>All About the Year You Were Born</h1>
   <div id="output"></div>
 </div>
     <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>

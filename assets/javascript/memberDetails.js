@@ -48,12 +48,13 @@ $("#occupation").append("Occupation: " + occupation)
 $("#favoriteSong").append("Favorite Song: " + favSong);
 $("#favoriteMovie").append("Favorite Movie: " + favMovie);
 $("#faveQuote").append(favQuote);
+//append occupation title and hobby to images pulled from flickr
 $("#job").append(occupation);
-$("#jobtoo").append(occupation);
-$("#hobbies").append(occupation);
-$("#hobbiestoo").append(hobbies);
+$("#family_member")..attr({"src":"assets/images/"+firstName+".png","width":"50","height":"50"});
 getfavesong(favSong);
 getfavemovie(favMovie);
+getImgs(occupation);
+getImgs(hobbies);
 //Moment.js to convert DOB to just the year to use for wiki API
 var yearofBirth = moment(birthDate, "MM/DD/YYYY").format("YYYY");
 console.log(yearofBirth);
@@ -153,31 +154,58 @@ $(function() {
 
 //wikipedia gives 10 results by default
 ////////////////////////////////////////////////////////////////////////////
-//TO DO: Get images Flikr API for occupation and hobbies (using setID) try udiin
-function getImgs(setId) {
+//TO DO: Get images Flikr API for occupation 
+
+function getImgs(occupation) {
   var URL = "https://api.flickr.com/services/rest/" +  // Wake up the Flickr API gods.
     "?method=flickr.photos.search" +  // Get photo from a search term. http://www.flickr.com/services/api/flickr.photosets.getPhotos.htm
     "&api_key=b3b0381319f596ff9613a686bab28c46" +  // API key
-    "&text=" + "cooking" +  // The search term.
+    "&text=" + occupation +  // The search term.
     "&privacy_filter=1" +  // 1 signifies all public photos.
-    "&per_page=2" + // Set # of photos wanted, selected 2
-    "&format=json&nojsoncallback=1";  
+    "&per_page=1" + // Set # of photos wanted, selected 2
+    "&format=json&nojsoncallback=2";  
 
   // See the API in action here: http://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
   $.getJSON(URL, function(data){
     console.log(data);
     $.each(data.photos.photo, function(i, item){
+            console.log("flickr photo title: " + data.photos.photo[0].title);
       // Creating the image URL. Info: http://www.flickr.com/services/api/misc.urls.html
       var img_src = "http://farm" + item.farm + ".static.flickr.com/" + item.server + "/" + item.id + "_" + item.secret + "_m.jpg";
-      var img_thumb = $("<img/>").attr("src", img_src).css("margin", "8px")
-      $(img_thumb).appendTo("#flickr");
+      var img_thumb = $("<img/>").attr("src", img_src).css("margin", "8px").css("margin-bottom", "70px").css("width", "350px");
+       $(img_thumb).appendTo("#occupation");
+       $("#occupation_title").text(occupation).css("margin-left", "500px");
+       console.log("occupation: " + occupation);
+      console.log(img_src);
+      //$("#occupation").attr("src",img_src);
+  
     });
   });
 }
+//TO DO: Get images Flikr API for hobby 
+function getImgs(hobbies) {
+  var URL = "https://api.flickr.com/services/rest/" +  // Wake up the Flickr API gods.
+    "?method=flickr.photos.search" +  // Get photo from a search term. http://www.flickr.com/services/api/flickr.photosets.getPhotos.htm
+    "&api_key=b3b0381319f596ff9613a686bab28c46" +  // API key
+    "&text=" + hobbies +  // The search term.
+    "&privacy_filter=1" +  // 1 signifies all public photos.
+    "&per_page=2" + // Set # of photos wanted, selected 2
+    "&format=json&nojsoncallback=2";  
 
-$(document).ready(function() {
-  getImgs("72157632700264359"); // Call the function!
-});
+  // See the API in action here: http://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
+  $.getJSON(URL, function(data){
+    console.log(data);
+    $.each(data.photos.photo, function(i, item){
+            console.log("flickr photo title: " + data.photos.photo[0].title);
+      // Creating the image URL. Info: http://www.flickr.com/services/api/misc.urls.html
+      var img_src = "http://farm" + item.farm + ".static.flickr.com/" + item.server + "/" + item.id + "_" + item.secret + "_m.jpg";
+      var img_thumb = $("<img/>").attr("src", img_src).css("margin", "auto").css("margin-bottom", "70px").css("width", "350px").css("display", "grid");
+       $(img_thumb).appendTo("#hobby");
+       $("#hobbies_title").text(hobbies).css("margin-left", "500px");
+       console.log("hobbies: " + hobbies);
+    });
+  });
+}
 //for main html linking to memberDetails.html
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
