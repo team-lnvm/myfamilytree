@@ -1,3 +1,5 @@
+
+
 body {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 18px;
@@ -33,17 +35,6 @@ body {
 .panel {
 	background: none;
 	border: none;
-}
-/*
-.boxed {
-	float: left;
-	width: 100px;
-	height: 100px;
-	margin: 10px;
-	border: 2px solid #73AD21;
-}*/ 
-
-	
 }
 
 /* makes text not tranparent */
@@ -82,7 +73,18 @@ h3 {
     bottom: 8px;
     left: 24px;
 }
-
+img[src*="Luis"] {
+    transform: rotate(90deg);
+}
+img[src*="Bev"] {
+    transform: rotate(90deg);
+}
+img[src*="Veronica"] {
+    transform: rotate(90deg);
+}
+img[src*="Jason"] {
+    transform: rotate(90deg);
+}
 h2 {
     color: white;
     text-shadow: 2px 2px 4px #000000;
