@@ -12,16 +12,16 @@
  //create variable called database to avoid calling out firebase.database every time
  var database = firebase.database();
  //create on click of any image to pull the family member's info from firebase
- $("img").on("click", function () {
-   console.log("Image was clicked");
-   //clear all fields from previous family member
-   $("#age").val("");
-   $("#birthPlace").val("");
-   $("#hobbies").val("");
-   $("#occupation").val("");
-   $("#favoriteSong").val("");
-   $("#favoriteMovie").val("");
- });
+//  $("img").on("click", function () {
+//    console.log("Image was clicked");
+//    //clear all fields from previous family member
+//    $("#age").val("");
+//    $("#birthPlace").val("");
+//    $("#hobbies").val("");
+//    $("#occupation").val("");
+//    $("#favoriteSong").val("");
+//    $("#favoriteMovie").val("");
+//  });
  //pull data from firebases
  database.ref().on('child_added', function (child) {
 
@@ -49,7 +49,7 @@
      $("#favoriteMovie").append("Favorite Movie: " + favMovie);
      $("#faveQuote").append(favQuote);
      //append occupation title and hobby to images pulled from flickr
-     $("#job").append(occupation);
+    //  $("#job").append(occupation);
      $("#family_member").attr({
        "src": "assets/images/" + firstName + ".png",
        "width": "50",
@@ -57,8 +57,8 @@
      });
      getfavesong(favSong);
      getfavemovie(favMovie);
-     getImgs(occupation);
-     getImgs(hobbies);
+     getImgs(occupation, 'occupation');
+     getImgs(hobbies, 'hobby');
      //Moment.js to convert DOB to just the year to use for wiki API
      var yearofBirth = moment(birthDate, "MM/DD/YYYY").format("YYYY");
      console.log(yearofBirth);
@@ -88,6 +88,7 @@
    }).done(function () {
      console.log("youTube complete URL: " + youtubeURL);
      $("#faveVideo").attr("src", youtubeURL);
+     $('#song_title').text(favSong);
    })
  }
  ////////////////////////////////////////////////////////////////////////////
@@ -128,7 +129,7 @@
    $(function () {
 
      // click ajax call
-     var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + yearofBirth + "&format=json&callback=?";
+     var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + yearofBirth + "&format=json&limit=5&callback=?";
      $.ajax({
          url: url,
          type: 'GET',
@@ -161,33 +162,36 @@
  ////////////////////////////////////////////////////////////////////////////
  //TO DO: Get images Flikr API for occupation 
 
- function getImgs(occupation) {
+ function getImgs(searchKey, type) {
    var URL = "https://api.flickr.com/services/rest/" + // Wake up the Flickr API gods.
      "?method=flickr.photos.search" + // Get photo from a search term. http://www.flickr.com/services/api/flickr.photosets.getPhotos.htm
      "&api_key=b3b0381319f596ff9613a686bab28c46" + // API key
-     "&text=" + occupation + // The search term.
+     "&text=" + searchKey + // The search term.
      "&privacy_filter=1" + // 1 signifies all public photos.
      "&per_page=1" + // Set # of photos wanted, selected 2
      "&format=json&nojsoncallback=1";
 
    // See the API in action here: http://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
    $.getJSON(URL, function (data) {
-     console.log(data);
+     console.log('********** \n',data);
      $.each(data.photos.photo, function (i, item) {
        console.log("flickr photo title: " + data.photos.photo[0].title);
        // Creating the image URL. Info: http://www.flickr.com/services/api/misc.urls.html
        var img_src = "http://farm" + item.farm + ".static.flickr.com/" + item.server + "/" + item.id + "_" + item.secret + "_m.jpg";
        var img_thumb = $("<img/>").attr("src", img_src).css("margin", "8px").css("margin-bottom", "70px").css("width", "350px");
-       $(img_thumb).appendTo("#occupation");
-       $("#occupation_title").text(occupation).css("margin-left", "500px");
-       console.log("occupation: " + occupation);
+       if (type === 'hobby') {
+        $(img_thumb).appendTo("#hobby");
+        $("#hobbies_title").text(searchKey);
+       } else if (type === 'occupation') {
+         $(img_thumb).appendTo("#occuptn");
+         $("#occupation_title").text(searchKey);
+       }
        console.log(img_src);
-       //$("#occupation").attr("src",img_src);
-
      });
    });
  }
  //TO DO: Get images Flikr API for hobby 
+ /*
  function getImgs(hobbies) {
    var URL = "https://api.flickr.com/services/rest/" + // Wake up the Flickr API gods.
      "?method=flickr.photos.search" + // Get photo from a search term. http://www.flickr.com/services/api/flickr.photosets.getPhotos.htm
@@ -211,6 +215,9 @@
      });
    });
  }
+
+ */
+
  //for main html linking to memberDetails.html
  function getParameterByName(name, url) {
    if (!url) url = window.location.href;
