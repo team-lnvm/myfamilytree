@@ -29,28 +29,32 @@ var familyTreeArr = ['grandFather', 'grandMother', 'father', 'mother', 'self', '
 $('#displayTree').hide();
 $('#addFamilyMember').hide();
 $('#hideAddFamily').hide();
+$("#errorTextid").hide();
 
 
-$('#showAddFamily').on('click', function(){
+$('#showAddFamily').on('click', function () {
     $('#addFamilyMember').show();
     $('#showAddFamily').hide();
     $('#hideAddFamily').show();
 })
 
-$('#hideAddFamily').on('click', function(){
+$('#hideAddFamily').on('click', function () {
     $('#addFamilyMember').hide();
     $('#showAddFamily').show();
     $('#hideAddFamily').hide();
 
 })
 
-$('.form-control').on('click', function() {
+$('.form-control').on('click', function () {
     if (familyGroupOf == "") {
-        alert('Please select - Family Member for ... ');
+        // alert('Please select - Family Member for ... ');
+        $("#errorTextid").show();
+    } else {
+        $("#errorTextid").hide();
     }
 })
 
-$('#submit').on('click', function() {
+$('#submit').on('click', function () {
     event.preventDefault();
 
     var firstName, lastName, birthDate, birthPlace, hobbies, occupation, profilePic, favMovie, favQuote, favSong, relationship;
@@ -60,8 +64,6 @@ $('#submit').on('click', function() {
     birthDate = $('#dobInput').val().trim();
     birthPlace = $('#birthPlaceInput').val().trim();
     hobbies = $('#hobbiesInput').val().trim();
-
-    // to be updated with the actual one.
     occupation = $('#occupationInput').val().trim();
     profilePic = '';
     favMovie = $('#favoriteMovieInput').val().trim();
@@ -88,87 +90,92 @@ $('#submit').on('click', function() {
         favSong: favSong,
         relationshipId: relationshipId
     });
-
-
 });
 
-$('.familyGroup').on('click', function() {
+$('.familyGroup').on('click', function () {
     console.log(this.name);
     familyGroupOf = this.name;
-    $('.familyGroup').css({ 'background': 'lightgrey' });
-    $(this).css({ 'background': 'lightblue' });
+    $('.familyGroup').css({
+        'background': 'lightgrey'
+    });
+    $(this).css({
+        'background': 'lightblue'
+    });
 })
 
-$('.viewFamilyGroup').on('click', function() {
+$('.viewFamilyGroup').on('click', function () {
     console.log(this.name);
-    $('.viewFamilyGroup').css({ 'background': 'lightgrey' });
-    $(this).css({ 'background': 'lightblue' });
+    $('.viewFamilyGroup').css({
+        'background': 'lightgrey'
+    });
+    $(this).css({
+        'background': 'lightblue'
+    });
 
     getDetailsOfSelectedUserFromDB(this.name);
-    familyTreeArr.forEach(function(element) {
-        if ($('#' + element).text() === "") {
-            $('#' + element).hide();
-        }
 
-    });
     $('#displayTree').show();
-
 })
 
-$('.familyGroup').css({ 'background': 'lightgrey' });
+$('.familyGroup').css({
+    'background': 'lightgrey'
+});
 
+db.ref().on('child_added', function (child) {
+    familyGroupOf = child.val().familyGroupOf
+})
 
-db.ref().on('child_added', function(child) {
+// db.ref().on('child_added', function(child) {
 
-    var familyGroupOf = child.val().familyGroupOf;
-    var relationship = child.val().relationship;
-    var firstName = child.val().firstName;
-    var lastName = child.val().lastName;
-    var birthDate = child.val().birthDate;
-    var birthPlace = child.val().birthPlace;
-    var hobbies = child.val().hobbies;
-    var occupation = child.val().occupation;
-    var profilePic = child.val().profilePic;
-    var favMovie = child.val().favMovie;
-    var favQuote = child.val().favQuote;
-    var favSong = child.val().favSong;
+// var familyGroupOf = child.val().familyGroupOf;
+// var relationship = child.val().relationship;
+// var firstName = child.val().firstName;
+// var lastName = child.val().lastName;
+// var birthDate = child.val().birthDate;
+// var birthPlace = child.val().birthPlace;
+// var hobbies = child.val().hobbies;
+// var occupation = child.val().occupation;
+// var profilePic = child.val().profilePic;
+// var favMovie = child.val().favMovie;
+// var favQuote = child.val().favQuote;
+// var favSong = child.val().favSong;
 
+// if (firstName !== undefined) {
+//     var markup =
+//         "<tr>\
+//      <td>" + familyGroupOf + "</td>\
+//      <td>" + relationship + "</td>\
+//      <td>" + firstName + "</td>\
+//      <td>" + lastName + "</td>\
+//      <td>" + birthDate + "</td>\
+//      <td>" + birthPlace + "</td>\
+//      <td>" + hobbies + "</td>\
+//      <td>" + occupation + "</td>\
+//      <td>" + profilePic + "</td>\
+//      <td>" + favMovie + "</td>\
+//      <td>" + favQuote + "</td>\
+//      <td>" + favSong + "</td>\
+//      </tr>";
+//     $("table tbody").append(markup);
+// }
+// })
 
-    if (firstName !== undefined) {
-        var markup =
-            "<tr>\
-         <td>" + familyGroupOf + "</td>\
-         <td>" + relationship + "</td>\
-         <td>" + firstName + "</td>\
-         <td>" + lastName + "</td>\
-         <td>" + birthDate + "</td>\
-         <td>" + birthPlace + "</td>\
-         <td>" + hobbies + "</td>\
-         <td>" + occupation + "</td>\
-         <td>" + profilePic + "</td>\
-         <td>" + favMovie + "</td>\
-         <td>" + favQuote + "</td>\
-         <td>" + favSong + "</td>\
-         </tr>";
-        $("table tbody").append(markup);
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
     }
-
-    // displayFamilyTreeOfSelectedUser("");
-
-})
-
-
-function displayFamilyTreeOfSelectedUser(selectedUser) {
-    selectedUser = "Navin";
-
-    // $('#spouse').text("Deepika");
-
-}
+    return this;
+};
 
 function getDetailsOfSelectedUserFromDB(selectedUser) {
-    db.ref().on('child_added', function(child) {
+    familyTreeArr1 = familyTreeArr;
+    db.ref().on('child_added', function (child) {
 
-        var familyGroupOf = child.val().familyGroupOf;
+        familyGroupOf = child.val().familyGroupOf;
 
         if (familyGroupOf === selectedUser) {
             var relationship = child.val().relationship;
@@ -186,11 +193,23 @@ function getDetailsOfSelectedUserFromDB(selectedUser) {
 
             $('#' + relationshipId).text(firstName);
             $('#' + relationshipId).attr("href", "memberDetails.html?firstName=" + firstName);
-            var userImg = $('<img>').attr({ "src": "assets/images/" + firstName + ".png", "width": "100", "height": "90" });
+            var userImg = $('<img>').attr({
+                "src": "assets/images/" + firstName + ".png",
+                "width": "100",
+                "height": "90"
+            });
             $('#' + relationshipId).append(userImg);
-            // $('#'+relationshipId img).attr("src","assets/images/"+firstName+".png");
+            // familyTreeArr1.remove(relationshipId);
 
         }
-
     })
+
+    familyTreeArr1.forEach(function (member) {
+        console.log(member);
+        if ($('#' + member).text() === "") {
+            $('#' + member).hide();
+        } else {
+            $('#' + member).show();
+        }
+    });
 }

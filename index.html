@@ -6,9 +6,11 @@
     <title>My family Tree</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.jpg" />
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-  	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Homemade+Apple|Love+Ya+Like+A+Sister|Pangolin|Special+Elite" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Homemade+Apple|Love+Ya+Like+A+Sister|Pangolin|Special+Elite"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
@@ -39,19 +41,36 @@
             </div>
             <div id="displayTree" class="tree">
                 <ul>
-                    <li><a href="#" id='grandfather' target="_blank"></a></li>
-                    <li><a href="#" id='grandmother' target="_blank"></a>
+                    <li>
+                        <a href="#" id='grandfather' target="_blank"></a>
+                    </li>
+                    <li>
+                        <a href="#" id='grandmother' target="_blank"></a>
                         <ul>
-                            <li><a href="#" id='father' target="_blank"></a></li>
-                            <li><a href="#" id='mother' target="_blank"></a>
+                            <li>
+                                <a href="#" id='father' target="_blank"></a>
+                            </li>
+                            <li>
+                                <a href="#" id='mother' target="_blank"></a>
                                 <ul>
-                                    <li><a href="#" id='self' target="_blank"></a></li>
-                                    <li><a href="#" id='spouse' target="_blank"></a>
+                                    <li>
+                                        <a href="#" id='self' target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" id='spouse' target="_blank"></a>
                                         <ul>
-                                            <li><a href="#" id='child1' target="_blank"></a></li>
-                                            <li><a href="#" id='child2' target="_blank"></a></li>
-                                            <li><a href="#" id='child3' target="_blank"></a></li>
-                                            <li><a href="#" id='child4' target="_blank"></a></li>
+                                            <li>
+                                                <a href="#" id='child1' target="_blank"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" id='child2' target="_blank"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" id='child3' target="_blank"></a>
+                                            </li>
+                                            <li>
+                                                <a href="#" id='child4' target="_blank"></a>
+                                            </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -61,8 +80,8 @@
                 </ul>
             </div>
             <!-- <br><br><br><br><br><br><br><br><br> -->
-<!-- Uncomment the following to show family member details on main page -->
-<!--              <div id="showFamilyTree">
+            <!-- Uncomment the following to show family member details on main page -->
+            <!--              <div id="showFamilyTree">
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
@@ -84,11 +103,11 @@
                     </tbody>
                 </table>
             </div> -->
- 
-           <!-- <br><br> -->
-           
-           <button id='showAddFamily' type="submit" class="btn btn-secondary btn-lg btn-block showhidebutton">Click to Add a Family Member</button>
-          <button id='hideAddFamily' type="submit" class="btn btn-secondary btn-lg btn-block showhidebutton">Hide Add a Family Member</button>
+
+            <!-- <br><br> -->
+
+            <button id='showAddFamily' type="submit" class="btn btn-secondary btn-lg btn-block showhidebutton">Click to Add a Family Member</button>
+            <button id='hideAddFamily' type="submit" class="btn btn-secondary btn-lg btn-block showhidebutton">Hide Add a Family Member</button>
             <form>
                 <div id='addFamilyMember' class="panel panel-default">
                     <div class="panel-heading" id="formheading">
@@ -110,6 +129,10 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <div id="errorTextid">
+                            <h3 style="color:red">Error: Please select - Add Family Member for...</h3>
+                        </div>
+                        <br>
                         <label class="col-form-label" for="Relationship">Relationship </label>
                         <select id="relationWithMain">
                             <option id="self">Self</option>
@@ -145,17 +168,18 @@
 
                         <p>.</p>
                         <!-- <label class="col-form-label" for="favoriteSong">Add Your Photo</label> -->
-<!--                         <form action="/action_page.php">
+                        <!--                         <form action="/action_page.php">
                             <input type="file" name="profilePic" accept="image/*">
                         </form> -->
-                      <button id='submit' type="submit" class="btn btn-primary">Submit</button>
+                        <button id='submit' type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </form>
         </div>
         <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
         <script type="text/javascript" src="assets/javascript/code.js"></script>
 </body>
 
